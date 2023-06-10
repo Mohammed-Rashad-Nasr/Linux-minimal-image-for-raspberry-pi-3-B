@@ -21,6 +21,8 @@ In raspberry pi GPU turns on first before CPU so there’re some steps using fil
 
 ### linux kernel
 Kernel is the core of the operating system which manages everything for you and abstracts user space from HW level. It interfaces with hardware , manages resources and provides APIs used by user space to keep it abstracted.
+
+
 ![linux kernel](https://www.engineersgarage.com/wp-content/uploads/2016/07/ArticleImage-12104-1.png)
 The image above shows the important rule of kernel in user space abstraction. User space applications run in low privilege level so they can not access hardware directly. Fortunately there is an interface between these applications and kernel level which is C libraries which translate  user level functions into kernel system call which is something like interrupt or trap generated to enter kernel space and access specific resources defined by kernel.
 
