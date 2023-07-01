@@ -41,6 +41,26 @@ In linux everything is a file , these files are organized in root filesystem whi
 * /sys: The sysfs filesystem
 * /tmp:	A place to put temporary or volatile files
 * /usr:	Additional programs, libraries,	and	system administrator utilities,	in the directories /usr/bin, /usr/lib and /usr/sbin, respectively
-* /var:	A hierarchy	of files and directories that may be modified at runtime, for	example,	log	messages,	some of which must be retained after boot
+* /var:	A hierarchy	of files and directories that may be modified at runtime, for example, log  messages, some of which must be retained after boot
 
 We are going to create minimal root filesystem which will give us init process , basic shell and some basic apps.
+
+### Toolchain
+This component should be the first one , it is not visible in the image above which shows linux components but it is the creator of all the components we have mentioned. Each target has its own toolchain used to compile applications and make them ready to run on this target. This image shows the components of the toolchain:
+
+![toolchain components](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTTbvGL_Pzxv2NwQvnVWkOh31cm20aBF997Q&usqp=CAU)
+
+* Binutils:	A set of binary	utilities including	the	assembler and the linker. It is available at http://www.gnu.org/software/binutils.
+* GNU	Compiler	Collection	(GCC):	These are the compilers	for	C and other	languages	which,	depending	on	the version	of	GCC,	include	C++, Objective-C, Objective-C++, Java, Fortran, Ada,	and	Go.	They	all	use	a common backend which produces assembler code, which is	fed	to the GNU assembler. It is	available at http://gcc.gnu.org/.
+* C	library:	A	standardized	application	program	interface	(API)	based	on
+the	POSIX	specification,	which	is	the	main	interface	to	the	operating
+system	kernel	for	applications.
+
+![cross compiler](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4TPEE8xuhZduAW-v92WF_0bCJgNicznb_sg&usqp=CAU)
+
+In our case we use cross compiler which means the host device and the target don't have the same architecture for example we will use linux os running on x86 computer to develope our application then we will compile the application and move the resulting executable to run on raspberry pi which have ARM architecture. 
+
+
+
+
+Now we know the 4 components of the system we are going to create so let's start creating them by different methods.
