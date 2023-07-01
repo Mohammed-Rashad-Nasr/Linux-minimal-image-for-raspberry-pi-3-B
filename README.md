@@ -17,6 +17,7 @@ Our minimal linux image consists of four essential components in order to work a
 Booting sequence varries from device to another but they all share the same concept. Booting sequence uses multi stage boot loader as the first steps after device power on. Multi stages boot loader means that you may have first boot loader which initializes some basic HW components like memory drivers and then loads the second boot loader which actually loads linux kernel. Some devices may also have more than two steps each step is suitable for particular device state and each one loads the following one until they reach the kernel. As we are talking about raspberry pi here is the booting sequence of raspberry pi :
 
 ![rpi boot sequence](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtreHICSPMRMclNKxiUyD5XeOA1nE6DnU8kw&usqp=CAU)
+
 In raspberry pi GPU turns on first before CPU so there’re some steps using files provided by the manufacturer like bootcode.bin and start.elf and they are not related to CPU. Until we reach the last step where start.elf reads config.txt which contains system configuration parameters and loads the kernel. This file is editable you can edit it to hack the sequence and put your boot loader and then your custom image starts from here !
 
 ### linux kernel
